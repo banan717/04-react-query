@@ -8,10 +8,7 @@ interface MovieModalProps {
   onClose: () => void;
 }
 
-export default function MovieModal({
-  movie,
-  onClose,
-}: MovieModalProps) {
+export default function MovieModal({ movie, onClose }: MovieModalProps) {
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -28,14 +25,8 @@ export default function MovieModal({
 
   return createPortal(
     <div className={css.backdrop} onClick={onClose}>
-      <div
-        className={css.modal}
-        onClick={e => e.stopPropagation()}
-      >
-        <button
-          className={css.closeButton}
-          onClick={onClose}
-        >
+      <div className={css.modal} onClick={(e) => e.stopPropagation()}>
+        <button className={css.closeButton} onClick={onClose}>
           &times;
         </button>
 
